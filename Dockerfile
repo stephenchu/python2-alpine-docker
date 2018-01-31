@@ -10,6 +10,7 @@ RUN mkdir -vp .pyenv \
 RUN apk update \
   && apk add --no-cache --virtual basics \
     bash \
+    openssl-dev \
   && apk add --no-cache --virtual python-build-deps \
     build-base \
     bzip2-dev \
@@ -20,7 +21,6 @@ RUN apk update \
     libffi-dev \
     linux-headers \
     ncurses-dev \
-    openssl-dev \
     patch \
     paxmark \
     readline-dev \
