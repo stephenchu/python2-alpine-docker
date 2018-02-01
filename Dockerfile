@@ -29,7 +29,7 @@ RUN apk update \
     xz-dev \
     zlib-dev \
   && $HOME/.pyenv/bin/pyenv install $PYTHON_VERSION \
-  && $HOME/.pyenv/bin/pyenv local $PYTHON_VERSION \
+  && $HOME/.pyenv/bin/pyenv global $PYTHON_VERSION \
   && apk del python-build-deps
 RUN printf "%s\n" \
   "export PYENV_ROOT=\"$HOME/.pyenv\"" \
