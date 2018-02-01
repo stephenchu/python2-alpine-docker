@@ -7,8 +7,7 @@ ADD https://github.com/pyenv/pyenv/archive/v1.2.1.tar.gz /tmp/
 RUN mkdir -vp .pyenv \
   && tar xzf /tmp/v1.2.1.tar.gz --strip-components=1 -C .pyenv \
   && rm -v /tmp/*.tar.gz
-RUN apk update \
-  && apk add --no-cache --virtual basics \
+RUN apk add --no-cache --virtual basics \
     bash \
     openssl-dev \
   && apk add --no-cache --virtual python-build-deps \
