@@ -10,6 +10,7 @@ RUN mkdir -vp .pyenv \
 RUN apk update \
   && apk add --no-cache --virtual basics \
     bash \
+    shadow \
     openssl-dev \
   && apk add --no-cache --virtual python-build-deps \
     build-base \
@@ -31,6 +32,7 @@ RUN apk update \
   && $HOME/.pyenv/bin/pyenv install $PYTHON_VERSION \
   && $HOME/.pyenv/bin/pyenv global $PYTHON_VERSION \
   && apk del python-build-deps
+RUN chsh -s /bin/bash root
 RUN printf "%s\n" \
   "export PYENV_ROOT=\"$HOME/.pyenv\"" \
   "export PATH=\"$HOME/.pyenv/bin:$PATH\"" \
